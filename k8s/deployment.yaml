@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-flask
+  namespace: sample-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-flask
+  template:
+    metadata:
+      labels:
+        app: sample-flask
+    spec:
+      containers:
+      - name: sample-flask
+        image: 553138586654.dkr.ecr.us-east-1.amazonaws.com/sample-flask-time:v1
+        ports:
+        - containerPort: 5000
